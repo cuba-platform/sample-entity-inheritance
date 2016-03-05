@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editCaption"
+        class="com.company.entityinheritance.gui.order.OrderEdit"
+        datasource="orderDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.entityinheritance.gui.order">
+    <dsContext>
+        <datasource id="orderDs"
+                    class="com.company.entityinheritance.entity.Order"
+                    view="order-view"/>
+        <collectionDatasource id="companiesDs"
+                              class="com.company.entityinheritance.entity.Company"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from demo$Company e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="peopleDs"
+                              class="com.company.entityinheritance.entity.Person"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from demo$Person e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="windowActions"
+            spacing="true">
+        <hbox spacing="true">
+            <fieldGroup id="fieldGroup"
+                        border="visible"
+                        caption="Details"
+                        datasource="orderDs">
+                <column width="250px">
+                    <field id="num"/>
+                    <field id="date"/>
+                    <field id="amount"/>
+                </column>
+            </fieldGroup>
+            <groupBox caption="Customer"
+                      spacing="true"
+                      width="300px">
+                <optionsGroup id="customerTypeField"
+                              orientation="horizontal"/>
+                <lookupPickerField id="customerField"
+                                   datasource="orderDs"
+                                   property="customer"
+                                   width="100%"/>
+            </groupBox>
+        </hbox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <screen id="demo$Order.browse"
+            template="com/company/entityinheritance/gui/order/order-browse.xml"/>
+    <screen id="demo$Order.edit"
+            template="com/company/entityinheritance/gui/order/order-edit.xml"/>
+    <screen id="demo$Company.browse"
+            template="com/company/entityinheritance/gui/company/company-browse.xml"/>
+    <screen id="demo$Company.edit"
+            template="com/company/entityinheritance/gui/company/company-edit.xml"/>
+    <screen id="demo$Person.browse"
+            template="com/company/entityinheritance/gui/person/person-browse.xml"/>
+    <screen id="demo$Person.edit"
+            template="com/company/entityinheritance/gui/person/person-edit.xml"/>
+</screen-config>

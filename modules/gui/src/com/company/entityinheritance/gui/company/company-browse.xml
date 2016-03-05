@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.entityinheritance.gui.company.CompanyBrowse"
+        focusComponent="companiesTable"
+        lookupComponent="companiesTable"
+        messagesPack="com.company.entityinheritance.gui.company">
+    <dsContext>
+        <collectionDatasource id="companiesDs"
+                              class="com.company.entityinheritance.entity.Company"
+                              view="_local">
+            <query>
+                <![CDATA[select e from demo$Company e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="companiesTable"
+            spacing="true">
+        <filter id="filter"
+                datasource="companiesDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="companiesTable"
+               width="100%">
+            <actions>
+                <action id="create"
+                        openType="DIALOG"/>
+                <action id="edit"
+                        openType="DIALOG"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="email"/>
+                <column id="industry"/>
+            </columns>
+            <rows datasource="companiesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="companiesTable.create"/>
+                <button id="editBtn"
+                        action="companiesTable.edit"/>
+                <button id="removeBtn"
+                        action="companiesTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.entityinheritance.gui.person.PersonBrowse"
+        focusComponent="personsTable"
+        lookupComponent="personsTable"
+        messagesPack="com.company.entityinheritance.gui.person">
+    <dsContext>
+        <collectionDatasource id="personsDs"
+                              class="com.company.entityinheritance.entity.Person"
+                              view="_local">
+            <query>
+                <![CDATA[select e from demo$Person e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="personsTable"
+            spacing="true">
+        <filter id="filter"
+                datasource="personsDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="personsTable"
+               width="100%">
+            <actions>
+                <action id="create"
+                        openType="DIALOG"/>
+                <action id="edit"
+                        openType="DIALOG"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="email"/>
+            </columns>
+            <rows datasource="personsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="personsTable.create"/>
+                <button id="editBtn"
+                        action="personsTable.edit"/>
+                <button id="removeBtn"
+                        action="personsTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>
