@@ -13,15 +13,18 @@ The `Order` entity has a reference to `Customer`. As the customer can be of the 
 ## Implementation Details
 
 In the `Customer` entity:
+
 * Inheritance strategy is set to `JOINED`
 * Discriminator column name `DTYPE` and type `String` are left default
 * Discriminator value is set to `C`
 
 In the `Company` entity:
+
 * Parent class is set to `Customer`
 * Discriminator value is set to `M`
 
 In the `Person` entity:
+
 * Parent class is set to `Customer`
 * Discriminator value is set to `P`
 
