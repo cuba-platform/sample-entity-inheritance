@@ -1,6 +1,6 @@
 # Entity Inheritance
 
-This project demonstrates how to use entity inheritance in [CUBA](https://www.cuba-platform.com) applications.
+This project demonstrates how to use entity inheritance in CUBA applications.
 
 ## Objective
 
