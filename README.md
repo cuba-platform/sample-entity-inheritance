@@ -40,4 +40,4 @@ To see the example in action, do the following:
 * Go to `http://localhost:8080/app` and log in as `admin` / `admin`
 * Open *Application > Orders* and create a new order.
 
-Based on CUBA Platform 6.3.5
+Based on CUBA Platform 6.4.0
