@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.entityinheritance.gui.customer.CustomerBrowse"
+        focusComponent="customersTable"
+        lookupComponent="customersTable"
+        messagesPack="com.company.entityinheritance.gui.customer">
+    <dsContext>
+        <groupDatasource id="customersDs"
+                         class="com.company.entityinheritance.entity.Customer"
+                         view="_local">
+            <query>
+                <![CDATA[select e from demo$Customer e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="customersTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="customersTable"
+                datasource="customersDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="customersTable"
+                    width="100%">
+            <actions>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="type"
+                        caption="Type"
+                        generator="generateTypeCell"/>
+                <column id="name"/>
+                <column id="email"/>
+            </columns>
+            <rows datasource="customersDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <popupButton id="createBtn"
+                             caption="Create"/>
+                <button id="editBtn"
+                        action="customersTable.edit"/>
+                <button id="removeBtn"
+                        action="customersTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>
